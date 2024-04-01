@@ -13,10 +13,10 @@ function newQuote() {
   const quote = localQuotes[Math.floor(Math.random() * localQuotes.length)];
 
   // Check if author field is blank and replace it with unknown
-  if (quote.author.split(",").length != 2) {
+  if (!quote.author) {
     authorText.textContent = "unknown";
   } else {
-    authorText.textContent = quote.author.split(",")[0];
+    authorText.textContent = quote.author;
   }
 
   // Check quote length to determine the stying
@@ -53,4 +53,4 @@ newQuoteBtn.addEventListener("click", newQuote);
 twitterBtn.addEventListener("click", tweetQuote);
 
 // Onload
-getQuotes();
+// getQuotes();
