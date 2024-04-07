@@ -8,13 +8,13 @@ const loader = document.getElementById("loader");
 // let apiQuotes = [];
 
 // Show Loading
-function loading() {
+function showLoadingSpinner() {
   loader.hidden = false;
   quoteContainer.hidden = true;
 }
 
 // Hide Loading
-function complete() {
+function removeLoadingSpinner() {
   quoteContainer.hidden = false;
   loader.hidden = true;
 }
@@ -22,7 +22,7 @@ function complete() {
 // Show new Quote
 
 function newQuote() {
-  loading();
+  showLoadingSpinner();
   // Pick a random quotes from apiQuotes array
   const quote = localQuotes[Math.floor(Math.random() * localQuotes.length)];
 
@@ -43,7 +43,7 @@ function newQuote() {
 
     // Set quote, hide loader
     quoteText.textContent = quote.text;
-    complete();
+    removeLoadingSpinner();
   }, 1000);
 }
 
